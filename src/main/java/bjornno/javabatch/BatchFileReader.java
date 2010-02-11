@@ -18,7 +18,7 @@ public class BatchFileReader {
         File dir = new File(directory);
 
         String[] children = dir.list();
-        if (children != null) {
+        if (children != null && children.length > 0) {
             String firstFileName = children[0];
             File file = new File(directory+"\\"+firstFileName);
             try {

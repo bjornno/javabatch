@@ -1,5 +1,7 @@
 package bjornno.javabatch;
 
+import java.io.Reader;
+
 
 public class BatchFileScanScheduler implements Runnable {
 
@@ -12,9 +14,13 @@ public class BatchFileScanScheduler implements Runnable {
     }
 
     public void run() {
+        System.out.println("Start scanning for files in: " + dir);
         BatchFileReader bfrdr = new BatchFileReader(dir);
         while (true) {
-            reciever.recieve(bfrdr.getOneFile());
+            Reader rdr = bfrdr.getOneFile();
+            if (rdr != null) {
+                reciever.recieve(rdr);
+            }
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
