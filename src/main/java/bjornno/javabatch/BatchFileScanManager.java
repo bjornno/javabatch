@@ -3,12 +3,12 @@ package bjornno.javabatch;
 import java.io.Reader;
 
 
-public class BatchFileScanScheduler implements Runnable {
+public class BatchFileScanManager implements Runnable {
 
     private BatchFileReciever reciever;
     private String dir;
 
-    public BatchFileScanScheduler(BatchFileReciever reciever, String dir) {
+    public BatchFileScanManager(BatchFileReciever reciever, String dir) {
         this.reciever = reciever;
         this.dir = dir;
     }
